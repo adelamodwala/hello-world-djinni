@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Example of a call to a native method
-        Button button = (Button) findViewById(R.id.sample_button);
+        final Button button = (Button) findViewById(R.id.sample_button);
+        final TextView tv = (TextView) findViewById(R.id.sample_text);
         button.setOnClickListener( new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                TextView tv = (TextView) findViewById(R.id.sample_text);
                 tv.setText(helloWorldService.getHelloWorld() + "\n" + tv.getText());
             }
         });
