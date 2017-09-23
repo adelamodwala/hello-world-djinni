@@ -31,4 +31,4 @@ target_include_directories(
   native-lib
   PUBLIC
   ${include_dirs}
-${support_dir})
+  ${support_dir})
