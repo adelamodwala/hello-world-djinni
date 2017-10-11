@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,13 +27,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Example of a call to a native method
-        final Button button = (Button) findViewById(R.id.sample_button);
-        final TextView tv = (TextView) findViewById(R.id.sample_text);
-        button.setOnClickListener( new View.OnClickListener() {
+        final Button helloButton = (Button) findViewById(R.id.sample_button);
+        final Button countButton = (Button) findViewById(R.id.count_button);
+        final ScrollView scrollView = (ScrollView) findViewById(R.id.sample_text);
+        final TextView textView = new TextView(this);
+        scrollView.addView(textView);
+
+        helloButton.setOnClickListener( new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                tv.setText(helloWorldService.getHelloWorld() + "\n" + tv.getText());
+                textView.setText(helloWorldService.getHelloWorld() + "\n" + textView.getText());
+            }
+        });
+
+        // This is a STATEFUL call to the C++ backend
+        countButton.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                textView.setText(helloWorldService.getCount() + "\n" + textView.getText());
             }
         });
 

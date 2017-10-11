@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <cstdint>
 #include <memory>
 #include <string>
 
@@ -15,6 +16,8 @@ public:
     static std::shared_ptr<HelloWorld> create();
 
     virtual std::string get_hello_world() = 0;
+
+    virtual int32_t get_count() = 0;
 };
 
 }  // namespace helloworld

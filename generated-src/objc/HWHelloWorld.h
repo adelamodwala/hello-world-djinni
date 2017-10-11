@@ -11,4 +11,6 @@
 
 - (nonnull NSString *)getHelloWorld;
 
+- (int32_t)getCount;
+
 @end

@@ -11,7 +11,9 @@ namespace helloworld {
         return std::make_shared<HelloWorldImpl>();
     }
 
-    HelloWorldImpl::HelloWorldImpl() {}
+    HelloWorldImpl::HelloWorldImpl() {
+        count = 0;
+    }
 
     std::string HelloWorldImpl::get_hello_world() {
         std::string myString = "Hello worlder! ";
@@ -25,6 +27,10 @@ namespace helloworld {
         }
 
         return myString;
+    }
+
+    int HelloWorldImpl::get_count() {
+        return ++count;
     }
 
 }

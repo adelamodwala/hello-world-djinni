@@ -14,6 +14,10 @@ namespace helloworld {
         // Our method that returns a string
         std::string get_hello_world();
 
+        int get_count();
+
+    private:
+        int count;
     };
 
 }

@@ -8,6 +8,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class HelloWorld {
     public abstract String getHelloWorld();
 
+    public abstract int getCount();
+
     public static native HelloWorld create();
 
     private static final class CppProxy extends HelloWorld
@@ -40,5 +42,13 @@ public abstract class HelloWorld {
             return native_getHelloWorld(this.nativeRef);
         }
         private native String native_getHelloWorld(long _nativeRef);
+
+        @Override
+        public int getCount()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getCount(this.nativeRef);
+        }
+        private native int native_getCount(long _nativeRef);
     }
 }
