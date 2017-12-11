@@ -16,7 +16,7 @@ namespace helloworld {
     }
 
     std::string HelloWorldImpl::get_hello_world() {
-        std::string myString = "Hello worlder! ";
+        std::string myString = "Hello world fellah!! ";
 
         time_t t = time(0);
         tm now = *localtime(&t);
