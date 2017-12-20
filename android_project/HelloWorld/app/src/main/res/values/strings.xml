@@ -1,5 +1,11 @@
 <resources>
+    <!-- Menu -->
+    <string name="menu_search">Search</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_navigation">Navigation</string>
+
     <string name="app_name">Hello World</string>
     <string name="count_button_text">Count</string>
     <string name="sample_button_text">Say Hello</string>
+    <string name="tester_button_text">Say Goodbye</string>
 </resources>
