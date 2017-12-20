@@ -16,7 +16,6 @@ import static com.mycompany.helloworld.MainActivity.TEST_MESSAGE;
 public class TesterActivity extends AppCompatActivity {
 
     private GlobalStateContainer gs;
-    HelloWorld helloWorldService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +23,13 @@ public class TesterActivity extends AppCompatActivity {
 
         // Init services
         gs  = (GlobalStateContainer) getApplication();
-        helloWorldService = HelloWorld.create();
 
         setContentView(R.layout.activity_tester);
         Intent intent = getIntent();
 
         final Button byeButton = (Button) findViewById(R.id.bye_button);
         final TextView testMessage = (TextView) findViewById(R.id.test_message);
-        testMessage.setText(String.format("Count: %d\n%s\n%s\n%s", gs.helloWorldState.getCount(), gs.getUserName(), helloWorldService.getHelloWorld(), intent.getStringExtra(TEST_MESSAGE)));
+        testMessage.setText(String.format("Count: %d\n%s\n%s\n%s", gs.helloWorldState.getCount(), gs.getUserName(), gs.helloWorldState.getHelloWorld(), intent.getStringExtra(TEST_MESSAGE)));
 
         byeButton.setOnClickListener(new View.OnClickListener() {
             @Override
